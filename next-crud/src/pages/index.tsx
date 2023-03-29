@@ -2,6 +2,7 @@ import Layout from "../components/Layout";
 import Tabela from "../components/Tabela"
 import Cliente from "../core/Cliente"
 import Botao from "../components/Botao"
+import Formulario from "./components/Entrada";
 
 export default function Home() {
   const clientes =[
@@ -11,6 +12,7 @@ export default function Home() {
   ]
   function clienteSelecionado(cliente:Cliente) {
     console.log(cliente.nome)
+    const [visivel, setVisivel] = useState <'tabela' | 'form'> ('tabela')
 
   }
   function clienteExcluido(cliente:Cliente) {
@@ -30,6 +32,7 @@ export default function Home() {
          clienteSelecionado={clienteSelecionado}
          clienteExcluido={clienteExcluido}
         />
+        <Formulario cliente={clientes[0]}></Formulario>
       </Layout>
     </div>
   )
